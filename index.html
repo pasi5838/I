@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.png" />
+  <title>Tic Tac Toe</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 30px; }
+    table { margin: 0 auto; border-collapse: collapse; }
+    td { width: 60px; height: 60px; font-size: 2em; text-align: center; border: 2px solid black; cursor: pointer; }
+    #message { margin: 20px; font-size: 1.2em; }
+    button { margin: 10px; padding: 10px 20px; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <div id="message">Giliran: X</div>
+  <table id="board"></table>
+  <div>
+    <button onclick="restartGame()">Restart Game</button>
+    <button onclick="resetScores()">Reset Skor</button>
+  </div>
+  <p>Skor X: <span id="scoreX">0</span> | Skor O: <span id="scoreO">0</span></p>
+  <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').then(() => {
+          console.log('Service Worker Registered');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
